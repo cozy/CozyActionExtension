@@ -11,7 +11,8 @@
 
 #import "ActionViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
-
+#import <Security/Security.h>
+#import "SAMKeychain.h"
 
 @interface FileCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *ivIcon;
@@ -105,11 +106,11 @@
 
 - (IBAction)onUploadClicked:(id)sender {
     
-    // TODO: get token + base url from shared data
-    
-    NSString * token = [NSString stringWithFormat:@"Bearer %@", @"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhY2Nlc3MiLCJpYXQiOjE1MDI0NjU3ODAsImlzcyI6Inpsb3QubXljb3p5LmNsb3VkIiwic3ViIjoiYWI4MDY0Zjc4OTE4OWY5ODE4YjVjZTUxMzBkZWUxODMiLCJzY29wZSI6ImlvLmNvenkuZmlsZXMgaW8uY296eS5jb250YWN0cyBpby5jb3p5LmpvYnM6UE9TVDpzZW5kbWFpbDp3b3JrZXIifQ.A3p_Qdn1Ky4fCmxyINgknJ0_mIUvPbyoBZu3-XMmdLlV5spcXV_v9b203ytSqGrUDBNmA_w40rUBJC0Xo_NyEw"];
-    
-    NSString * base_url = @"https://zlot.mycozy.cloud";
+    // get token + base url from keychain
+    NSArray * accounts = [SAMKeychain accountsForService:@"io.cozy.drive.mobile"];
+    NSDictionary * account = accounts[0];
+    NSString * base_url = [account objectForKey:kSAMKeychainAccountKey];
+    NSString * token = [SAMKeychain passwordForService:@"io.cozy.drive.mobile" account:base_url];
     
     // TODO: create queue instead of several // reqs ?
     mTotalSize = 0;
@@ -120,7 +121,7 @@
     
     
     for(NSURL * url in mFileURLs) {
-       NSString * file_name = [url lastPathComponent];
+        NSString * file_name = [url lastPathComponent];
         NSString * url_str = [NSString stringWithFormat:@"%@/files/io.cozy.files.root-dir?Type=file&Name=%@&Tags=file&Executable=false", base_url, file_name];
         
         
