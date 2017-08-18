@@ -91,30 +91,38 @@
                                 <rect key="frame" x="32" y="249.5" width="256" height="93"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Oj-mJ-rka">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="21"/>
+                                        <rect key="frame" x="0.0" y="8" width="256" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ev2-tU-z4I">
-                                        <rect key="frame" x="0.0" y="29" width="256" height="21"/>
+                                        <rect key="frame" x="0.0" y="37" width="256" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oSy-ct-hAd">
-                                        <rect key="frame" x="0.0" y="83" width="256" height="2"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dK0-0O-slU">
+                                        <rect key="frame" x="0.0" y="63.5" width="256" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oSy-ct-hAd">
+                                        <rect key="frame" x="8" y="84" width="240" height="2.5"/>
                                     </progressView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="6Oj-mJ-rka" firstAttribute="width" secondItem="Gdi-xI-uc7" secondAttribute="width" id="20D-v2-dEM"/>
-                                    <constraint firstItem="oSy-ct-hAd" firstAttribute="width" secondItem="Gdi-xI-uc7" secondAttribute="width" id="A1v-r5-OUs"/>
+                                    <constraint firstAttribute="trailing" secondItem="oSy-ct-hAd" secondAttribute="trailing" constant="8" id="3lG-PZ-5r5"/>
+                                    <constraint firstItem="oSy-ct-hAd" firstAttribute="leading" secondItem="Gdi-xI-uc7" secondAttribute="leading" constant="8" id="Gy6-er-Jij"/>
                                     <constraint firstItem="ev2-tU-z4I" firstAttribute="top" secondItem="6Oj-mJ-rka" secondAttribute="bottom" constant="8" id="Hox-Mu-gD4"/>
                                     <constraint firstItem="6Oj-mJ-rka" firstAttribute="centerX" secondItem="Gdi-xI-uc7" secondAttribute="centerX" id="JsD-y5-r70"/>
                                     <constraint firstItem="oSy-ct-hAd" firstAttribute="centerX" secondItem="Gdi-xI-uc7" secondAttribute="centerX" id="R7z-uM-s5b"/>
                                     <constraint firstItem="ev2-tU-z4I" firstAttribute="width" secondItem="Gdi-xI-uc7" secondAttribute="width" id="UmE-FD-0qH"/>
-                                    <constraint firstItem="6Oj-mJ-rka" firstAttribute="top" secondItem="Gdi-xI-uc7" secondAttribute="top" id="jZj-IM-cqA"/>
+                                    <constraint firstItem="6Oj-mJ-rka" firstAttribute="top" secondItem="Gdi-xI-uc7" secondAttribute="top" constant="8" id="jZj-IM-cqA"/>
                                     <constraint firstAttribute="bottom" secondItem="oSy-ct-hAd" secondAttribute="bottom" constant="8" id="lhr-z9-okU"/>
                                     <constraint firstItem="ev2-tU-z4I" firstAttribute="centerX" secondItem="Gdi-xI-uc7" secondAttribute="centerX" id="sFb-ju-1Ze"/>
                                 </constraints>
@@ -150,6 +158,7 @@
                         <outlet property="btUpload" destination="i4T-w8-XT2" id="VbY-cT-D2e"/>
                         <outlet property="imageView" destination="9ga-4F-77Z" id="5y6-5w-9QO"/>
                         <outlet property="lbFileName" destination="ev2-tU-z4I" id="iXj-um-CsA"/>
+                        <outlet property="lbPercent" destination="dK0-0O-slU" id="dir-xd-FIB"/>
                         <outlet property="lbUploading" destination="6Oj-mJ-rka" id="RdS-An-UJ0"/>
                         <outlet property="pvProgress" destination="oSy-ct-hAd" id="vAH-bK-ged"/>
                         <outlet property="tvMain" destination="n5Y-ul-nNH" id="cQa-wy-At4"/>
