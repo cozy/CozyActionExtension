@@ -14,6 +14,8 @@
 #import <Security/Security.h>
 #import "SAMKeychain.h"
 
+#define KEYCHAIN_NAME       @"io.cozy.drive.mobile"
+
 @interface FileCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *ivIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lbName;
@@ -52,6 +54,10 @@
     
     [[self tvMain] setDelegate:self];
     [[self tvMain] setDataSource:self];
+    
+    [[self btCancel] setTitle:NSLocalizedString(@"STR_CANCEL", nil)];
+    [[self btUpload] setTitle:NSLocalizedString(@"STR_UPLOAD", nil)];
+    
     
     
     mFileURLs = [NSMutableArray new];
@@ -107,10 +113,19 @@
 - (IBAction)onUploadClicked:(id)sender {
     
     // get token + base url from keychain
-    NSArray * accounts = [SAMKeychain accountsForService:@"io.cozy.drive.mobile"];
+    NSArray * accounts = [SAMKeychain accountsForService:KEYCHAIN_NAME];
+    if([accounts count] == 0) {
+        // user not logged in ?
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"STR_LOGIN_ERROR_TITLE", nil) message:NSLocalizedString(@"STR_LOGIN_ERROR_MESSAGE", nil) preferredStyle:(UIAlertControllerStyleAlert)];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:(UIAlertActionStyleDefault) handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
+    
+    
     NSDictionary * account = accounts[0];
     NSString * base_url = [account objectForKey:kSAMKeychainAccountKey];
-    NSString * token = [SAMKeychain passwordForService:@"io.cozy.drive.mobile" account:base_url];
+    NSString * token = [SAMKeychain passwordForService:KEYCHAIN_NAME account:base_url];
     
     // TODO: create queue instead of several // reqs ?
     mTotalSize = 0;
@@ -119,7 +134,7 @@
         mTotalSize += [[attrs objectForKey:NSFileSize] unsignedIntegerValue];
     }
     
-    
+    // upload to root
     for(NSURL * url in mFileURLs) {
         NSString * file_name = [url lastPathComponent];
         NSString * url_str = [NSString stringWithFormat:@"%@/files/io.cozy.files.root-dir?Type=file&Name=%@&Tags=file&Executable=false", base_url, file_name];
@@ -215,7 +230,7 @@
     long status = (long)[response statusCode];
     
     // cleanup
-    if(error && status >= 400) {
+    if(error && (status / 100) != 2) {
         NSLog(@"Error: %@", error);
         
     } else {

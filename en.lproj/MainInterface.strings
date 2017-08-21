@@ -1,0 +1,21 @@
+
+/* Class = "UINavigationItem"; title = "Cozy Drive"; ObjectID = "3HJ-uW-3hn"; */
+"3HJ-uW-3hn.title" = "Cozy Drive";
+
+/* Class = "UILabel"; text = "Uploading..."; ObjectID = "6Oj-mJ-rka"; */
+"6Oj-mJ-rka.text" = "Uploading...";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "LaD-DK-j6q"; */
+"LaD-DK-j6q.text" = "Label";
+
+/* Class = "UIViewController"; title = "Image"; ObjectID = "ObA-dk-sSI"; */
+"ObA-dk-sSI.title" = "Image";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "WYi-yp-eM6"; */
+"WYi-yp-eM6.title" = "Cancel";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ev2-tU-z4I"; */
+"ev2-tU-z4I.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Upload"; ObjectID = "i4T-w8-XT2"; */
+"i4T-w8-XT2.title" = "Upload";

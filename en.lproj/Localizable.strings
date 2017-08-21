@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Cozy Drive
+
+  Created by Olivier on 21/08/2017.
+
+*/
+"CFBundleDisplayName" = "Add to Cozy";
+"STR_UPLOAD" = "Upload";
+"STR_CANCEL" = "Cancel";
+"STR_LOGIN_ERROR_TITLE" = "Login error";
+"STR_LOGIN_ERROR_MESSAGE" = "You must be logged into Cozy Drive to upload files.";
+"STR_UPLOAD_ERROR_TITLE" = "Network error";

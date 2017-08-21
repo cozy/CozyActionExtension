@@ -29,7 +29,7 @@
                                     <navigationItem title="Cozy Drive" id="3HJ-uW-3hn">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" style="plain" id="WYi-yp-eM6">
                                             <connections>
-                                                <action selector="onCancelClicked" destination="ObA-dk-sSI" id="Hgy-MQ-2wv"/>
+                                                <action selector="onCancelClicked:" destination="ObA-dk-sSI" id="WYf-tF-EDI"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Upload" style="done" id="i4T-w8-XT2">
