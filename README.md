@@ -16,5 +16,6 @@ $ open Cozy\ Drive.xcworkspace
 ```
 - In project explorer, select CozyActionExtension group, right click and Add Files to Cozy Drive
 - Select CozyActionExtension.xcassets
+- For each target (app and extension), go to Build Settings > Capabilities tab > Keychain Sharing ON > add "io.cozy.drive.mobile"
 
 Now you should be able to build the extension and debug.
