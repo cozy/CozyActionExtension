@@ -19,4 +19,15 @@ $ open Cozy\ Drive.xcworkspace
 - For each target (app and extension), go to Build Settings > Capabilities tab > Keychain Sharing ON > add "io.cozy.drive.mobile"
 
 
+- Go to CozyActionExtension folder, then edit the Podfile file: add the SAMKeychain dependency for the CozyActionExtension target:
+```
+target 'CozyActionExtension' do
+    pod 'SAMKeychain'
+end
+```
+- Open Terminal,  folder, then install pod dependencies
+```
+$ pod install
+```
+
 Now you should be able to build the extension and debug.
