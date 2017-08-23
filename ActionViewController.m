@@ -12,7 +12,7 @@
 #import "ActionViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <Security/Security.h>
-#import "SAMKeychain.h"
+#import <SAMKeychain/SAMKeychain.h>
 
 #define KEYCHAIN_NAME       @"io.cozy.drive.mobile"
 
