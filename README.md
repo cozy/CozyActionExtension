@@ -12,7 +12,7 @@ $ git clone https://github.com/maestun/CozyActionExtension.git
 $ open Cozy\ Drive.xcworkspace
 ```
 - In project explorer, select CozyActionExtension group, right click and Add Files to Cozy Drive
-- Select CozyActionExtension.xcassets
+- Select these 3 folders: CozyActionExtension.xcassets / en.lproj / fr.lproj
 - Select CozyActionExtension target, Build Settings tab, search for "Asset":
 - Field "Asset Catalog App Icon Set Name" => put "AppIcon"
 - Field "Asset Catalog Launch Image Set Name" => remove "LaunchImage"
